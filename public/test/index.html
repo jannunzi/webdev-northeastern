@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TestApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div class="container" ng-controller="TestController as model">
+
+        <h1>Test</h1>
+
+        <div ng-show="model.error"
+             class="alert alert-danger">
+            {{model.error}}
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Test Message</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input ng-model="model.message"
+                               placeholder="message"
+                               class="form-control"/>
+                    </td>
+                    <td>
+                        <button ng-click="model.createMessage(model.message)"
+                                class="btn btn-primary pull-right">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="message in model.messages | reverse">
+                    <td>
+                        {{message.message}}
+                    </td>
+                    <td>
+                        <button ng-click="model.deleteMessage(message)"
+                                class="btn btn-danger pull-right">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
