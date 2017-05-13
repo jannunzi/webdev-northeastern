@@ -1,7 +1,7 @@
 var app = require('./express');
 
 app.set('view engine', 'ejs');
-require('./utilities/filelist');
+// require('./utilities/filelist');
 
 app.use(app.express.static(__dirname + '/public'));
 
