@@ -1,11 +1,23 @@
 <link href="/vendor/css/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 <br/>
+
+<%
+    var folderParts = folder.split('/');
+%>
+
 <div class="container-fluid">
 <ul class="list-group">
     <li class="list-group-item active">
+
         <a href="<%= '..' %>" style="color:white;">
             <span class="glyphicon glyphicon-chevron-left"></span></a>
-        Index
+/<% var breadCrumbFolder = '/';
+    for(var f in folderParts) {
+        if(folderParts[f] === '') continue;
+        breadCrumbFolder += folderParts[f] + '/';
+%><a href="<%= breadCrumbFolder %>" style="color: white;"><%= folderParts[f] %></a>/<%
+}
+%>
     </li>
 <%  for(var f in files) {
 %>      <li class="list-group-item">
