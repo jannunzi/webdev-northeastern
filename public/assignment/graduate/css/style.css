@@ -1,0 +1,12 @@
+input {
+    margin-bottom: 5px;
+}
+
+nav.navbar.navbar-default.navbar-fixed-top {
+    padding-right: 15px;
+}
+
+body {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
