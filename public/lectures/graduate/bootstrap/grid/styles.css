@@ -1,0 +1,15 @@
+body {
+    overflow: hidden;
+}
+.yellow-bg {
+    background-color: yellow;
+}
+.blue-bg {
+    background-color: blue;
+}
+.red-bg {
+    background-color: red;
+}
+.gray-bg {
+    background-color: gray
+}
