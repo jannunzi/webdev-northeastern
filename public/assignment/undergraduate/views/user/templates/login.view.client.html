@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../../../../../vendor/angular/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="../controllers/login.controller.client.js"></script>
+    <link href="../../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../../css/styles.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="WAM">
+    <div class="container-fluid"
+         ng-controller="loginController">
+        <h1>Login</h1>
+
+        <div ng-show="message" class="alert alert-danger">
+            {{message}}
+        </div>
+
+        <label for="username">Username</label>
+        <input ng-model="username"
+               id="username"
+               class="form-control"/>
+
+        <label>Password</label>
+        <input ng-model="password"
+               class="form-control"/>
+
+        <a ng-click="login(username, password)"
+           class="btn btn-block btn-primary">
+            Login
+        </a>
+        <a href="register.html"
+           class="btn btn-block btn-success">
+            Register
+        </a>
+    </div>
+</body>
+</html>
