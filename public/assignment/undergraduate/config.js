@@ -38,5 +38,13 @@
                 controller: 'websiteEditController',
                 controllerAs: 'model'
             })
+            // page routing TBD
+            // widget routing
+            .when('/user/:userId/website/:websiteId/page/:pageId/widget', {
+                templateUrl: 'views/widget/templates/widget-list.view.client.html',
+                controller: 'widgetListController',
+                controllerAs: 'model'
+            })
+
     }
 })();
