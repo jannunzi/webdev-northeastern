@@ -12,10 +12,29 @@
         ];
 
         var api = {
+            createUser: createUser,
             findUserById: findUserById,
+            findUserByUsername: findUserByUsername,
             findUserByCredentials: findUserByCredentials
         };
         return api;
+
+        function createUser(user) {
+            user._id = (new Date()).getTime() + "";
+            user.created = new Date();
+            users.push(user);
+            return user;
+        }
+
+        function findUserByUsername(username) {
+            var user = users.find(function (user) {
+                return user.username === username;
+            });
+            if(typeof user === 'undefined') {
+                return null;
+            }
+            return user;
+        }
 
         function findUserById(userId) {
             for(var u in users) {

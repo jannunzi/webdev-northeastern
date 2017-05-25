@@ -12,7 +12,7 @@
             var found = userService.findUserByCredentials(username, password);
             
             if(found !== null) {
-                $location.url('/profile/' + found._id);
+                $location.url('/user/' + found._id);
                 // $scope.message = "Welcome " + username;
             } else {
                 model.message = "Username " + username + " not found, please try again";
