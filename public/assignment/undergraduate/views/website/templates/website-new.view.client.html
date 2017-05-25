@@ -1,0 +1,103 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Header
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4 hidden-xs srollable-left">
+            <ul class="list-group">
+                <li class="list-group-item active">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-8 col-sm-11 col-xs-6">
+                            Website Name
+                        </div>
+                        <div class="col-lg-3 visible-lg">
+                            Created
+                        </div>
+                        <div class="col-md-2 hidden-sm  hidden-xs">
+                            Updated
+                        </div>
+                        <div class="col-sm-2 col-xs-6">
+
+                        </div>
+                    </div>
+                </li>
+
+
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-8 col-sm-8 col-xs-8">
+                            <a href="../page/page-list.html">
+                                Cras justo odio
+                            </a>
+                        </div>
+                        <div class="col-lg-3 visible-lg">
+                            1/1/2017
+                        </div>
+                        <div class="col-md-2 hidden-sm  hidden-xs">
+                            2/2/2017
+                        </div>
+                        <div class="col-sm-4 col-xs-4">
+                            <!--<a href="website-edit.html" class="pull-right">-->
+                                <!--<span class="glyphicon glyphicon-cog pull-right"></span>-->
+                            <!--</a>-->
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            <label for="name">Name</label>
+            <input id="name"
+                   ng-model="website.name"
+                   class="form-control"/>
+
+            <label for="description">Description</label>
+            <textarea id="description"
+                      ng-model="website.description"
+                      rows="5"
+                      class="form-control"></textarea>
+
+            <a ng-click="model.createWebsite(website)"
+               class="btn btn-block btn-success">
+                Create
+            </a>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Footer
+            </a>
+        </div>
+    </div>
+</nav>

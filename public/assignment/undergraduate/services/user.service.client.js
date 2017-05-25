@@ -27,9 +27,12 @@
         }
         
         function findUserByUsername(username) {
-            return users.find(function (user) {
-                return user.username === username
+            var user = users.find(function (user) {
+                return user.username === username;
             });
+            if(typeof user === 'undefined')
+                return null;
+            return user;
         }
         
         function updateUser(userId, user) {

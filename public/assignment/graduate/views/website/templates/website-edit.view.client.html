@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet"/>
-</head>
-<body>
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
-                Fixed Top
+                Edit Website
             </a>
             <p class="navbar-text pull-right">
                 <a href="#" class="navbar-link">
@@ -75,17 +64,21 @@
 
             <label for="name">Name</label>
             <input class="form-control"
+                   ng-model="model.website.name"
                    placeholder="facebook"
-                   value="Blogger"
                    id="name"/>
 
             <label for="description">Description</label>
             <textarea id="description"
                       rows="5"
+                      ng-model="model.website.description"
                       placeholder="So big it is its own country"
-                      class="form-control">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </textarea>
+                      class="form-control"></textarea>
 
-            <a href="website-list.html" class="btn btn-block btn-danger">Delete</a>
+            <a ng-click="model.deleteWebsite(model.websiteId)"
+               class="btn btn-block btn-danger">
+                Delete
+            </a>
         </div>
     </div>
 
@@ -118,6 +111,3 @@
         </div>
     </div>
 </nav>
-
-</body>
-</html>
