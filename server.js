@@ -11,4 +11,6 @@ blog(app);
 var todo = require('./lectures/undergraduate/todo/app');
 todo(app);
 
+require('./assignment/undergrad/app');
+
 app.listen(process.env.PORT || 3000);

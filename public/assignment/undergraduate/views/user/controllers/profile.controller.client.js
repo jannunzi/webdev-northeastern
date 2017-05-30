@@ -8,6 +8,12 @@
         var model = this;
         var userId = $routeParams['userId'];
 
-        model.user = userService.findUserById(userId);
+        userService
+            .findUserById(userId)
+            .then(renderUser);
+
+        function renderUser (user) {
+            model.user = user;
+        }
     }
 })();
