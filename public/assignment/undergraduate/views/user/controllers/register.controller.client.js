@@ -18,7 +18,7 @@
                 return;
             }
 
-            var found = userService.findUserByUsername(username);
+            var found = null;//userService.findUserByUsername(username);
 
             if(found !== null) {
                 model.error = "Username is not available";
@@ -28,8 +28,11 @@
                     password: password
                 };
                 // model.message = user;
-                userService.createUser(user);
-                $location.url('/user/' + user._id);
+                userService
+                    .createUser(user)
+                    .then(function (user) {
+                        $location.url('/user/' + user._id);
+                    });
             }
         }
     }

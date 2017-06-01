@@ -3,7 +3,7 @@
         .module('WAM')
         .factory('websiteService', websiteService);
     
-    function websiteService() {
+    function websiteService($http) {
 
         var websites = [
             { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },
@@ -49,15 +49,20 @@
         }
 
         function findAllWebsitesForUser(userId) {
-            var resultSet = [];
-            for(var w in websites) {
-                if(websites[w].developerId === userId) {
-                    // websites[w].created = new Date();
-                    // websites[w].updated = new Date();
-                    resultSet.push(websites[w]);
-                }
-            }
-            return resultSet;
+            var url = "/api/assignment/user/"+userId+"/website";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+            // var resultSet = [];
+            // for(var w in websites) {
+            //     if(websites[w].developerId === userId) {
+            //         // websites[w].created = new Date();
+            //         // websites[w].updated = new Date();
+            //         resultSet.push(websites[w]);
+            //     }
+            // }
+            // return resultSet;
         }
     }
 })();

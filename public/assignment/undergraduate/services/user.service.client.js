@@ -22,8 +22,13 @@
         };
         
         function createUser(user) {
-            user._id = (new Date()).getTime() + "";
-            users.push(user);
+            var url = "/api/assignment/user"
+            return $http.post(url, user)
+                .then(function (response) {
+                    return response.data;
+                })
+            // user._id = (new Date()).getTime() + "";
+            // users.push(user);
         }
         
         function findUserByUsername(username) {
@@ -36,15 +41,19 @@
         }
         
         function updateUser(userId, user) {
-            
+            var url = "/api/assignment/user/" + userId;
+            return $http.put(url, user)
+                .then(function (response) {
+                    return response.data;
+                });
         }
         
         function deleteUser(userId) {
-            var user = users.find(function (user) {
-                return user._id === userId;
-            });
-            var index = users.indexOf(user);
-            users.splice(index, 1);
+            var url = "/api/assignment/user/" + userId;
+            return $http.delete(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function findUserByCredentials(username, password) {

@@ -54,6 +54,10 @@
 
     <div class="container-fluid">
 
+        <div ng-show="model.message" class="alert alert-info">
+            {{model.message}}
+        </div>
+
         <label for="username">Username</label>
         <input readonly
                ng-model="model.user.username"
@@ -78,7 +82,15 @@
                class="form-control"/>
 
         <label>Email</label>
-        <input type="email" class="form-control"/>
+        <input ng-model="model.user.email"
+               type="email"
+               class="form-control"/>
+
+        <a ng-click="model.updateUser(model.user)"
+           class="btn btn-block btn-success">Update</a>
+
+        <a ng-click="model.deleteUser(model.user)"
+           class="btn btn-block btn-danger">Unregister</a>
 
         <a href="#!/user/{{model.user._id}}/website"
            class="btn btn-block btn-primary">Website</a>

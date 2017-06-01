@@ -3,7 +3,7 @@
         .module('WAM')
         .service('websiteService', websiteService);
     
-    function websiteService() {
+    function websiteService($http) {
         this.findAllWebsitesForUser = findAllWebsitesForUser;
         this.findWebsiteById = findWebsiteById;
         this.deleteWebsite = deleteWebsite;
@@ -37,17 +37,12 @@
         }
 
         function findAllWebsitesForUser(userId) {
-            var results = [];
 
-            for(var v in websites) {
-                if(websites[v].developerId === userId) {
-                    websites[v].created = new Date();
-                    websites[v].accessed = new Date();
-                    results.push(websites[v]);
-                }
-            }
-
-            return results;
+            var url = "/api/assignment/graduate/user/"+userId+"/website";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
     }
 })();
