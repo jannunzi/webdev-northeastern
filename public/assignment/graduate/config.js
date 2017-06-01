@@ -43,5 +43,10 @@
                 controller: 'widgetListController',
                 controllerAs: 'model'
             })
+            .when('/widget/:widgetId', {
+                templateUrl: 'views/widget/templates/widget-image-edit.html',
+                controller: 'widgetListController',
+                controllerAs: 'model'
+            })
     }
 })();
