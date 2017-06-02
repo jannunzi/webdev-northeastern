@@ -45,6 +45,14 @@
                 controller: 'widgetListController',
                 controllerAs: 'model'
             })
+            .when('/widget/:widgetId', {
+                templateUrl: 'views/widget/templates/widget-image-editor.html'
+            })
+            .when('/widget/:widgetId/search', {
+                templateUrl: 'views/widget/templates/widget-flickr-search.view.client.html',
+                controller: 'flickrController',
+                controllerAs: 'model'
+            })
 
     }
 })();

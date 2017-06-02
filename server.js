@@ -17,6 +17,6 @@ todo(app);
 
 require('./assignment/undergrad/app');
 
-require('./assignment/graduates/app');
+// require('./assignment/graduates/app');
 
 app.listen(process.env.PORT || 3000);
