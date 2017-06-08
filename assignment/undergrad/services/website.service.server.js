@@ -1,6 +1,8 @@
 var app = require('../../../express');
+var websiteModel = require('../models/website/website.model.server');
 
 app.get('/api/assignment/user/:userId/website', findAllWebsitesForUser);
+app.post('/api/assignment/user/:userId/website', createWebsite);
 
 var websites = [
     { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },
@@ -12,14 +14,30 @@ var websites = [
     { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
 ];
 
+function createWebsite(req, res) {
+    var website = req.body;
+    var userId = req.params.userId;
+    website._user = userId;
+    websiteModel
+        .createWebsite(website)
+        .then(function (website) {
+            res.json(website);
+        });
+}
+
 function findAllWebsitesForUser(req, res) {
-    var resultSet = [];
-    for(var w in websites) {
-        if(websites[w].developerId === req.params.userId) {
-            // websites[w].created = new Date();
-            // websites[w].updated = new Date();
-            resultSet.push(websites[w]);
-        }
-    }
-    res.json(resultSet);
+    websiteModel
+        .findAllWebsitesForUser(req.params.userId)
+        .then(function (websites) {
+            res.json(websites);
+        });
+    // var resultSet = [];
+    // for(var w in websites) {
+    //     if(websites[w].developerId === req.params.userId) {
+    //         // websites[w].created = new Date();
+    //         // websites[w].updated = new Date();
+    //         resultSet.push(websites[w]);
+    //     }
+    // }
+    // res.json(resultSet);
 }

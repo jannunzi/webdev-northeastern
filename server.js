@@ -12,11 +12,12 @@ app.use(app.express.static(__dirname + '/public'));
 var blog = require('./lectures/graduate/blog/app');
 blog(app);
 
-var todo = require('./lectures/undergraduate/todo/app');
-todo(app);
+// var todo = require('./lectures/undergraduate/todo/app');
+// todo(app);
 
-require('./assignment/undergrad/app');
+// require('./assignment/undergrad/app');
+require('./assignment/graduates/app');
 
-// require('./assignment/graduates/app');
+// require('./experiments/oxford/oxford.service.server');
 
 app.listen(process.env.PORT || 3000);

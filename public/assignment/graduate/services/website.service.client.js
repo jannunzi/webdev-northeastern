@@ -7,7 +7,7 @@
         this.findAllWebsitesForUser = findAllWebsitesForUser;
         this.findWebsiteById = findWebsiteById;
         this.deleteWebsite = deleteWebsite;
-        this.createWebsite = createWebsite;
+        this.createWebsiteForUser = createWebsiteForUser;
 
         var websites = [
             { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },
@@ -19,15 +19,24 @@
             { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
         ];
 
-        function createWebsite(website) {
-            website._id = (new Date()).getTime() + "";
-            websites.push(website);
+        function createWebsiteForUser(userId, website) {
+            return $http.post("/api/assignment/graduate/user/"+userId+"/website", website)
+                .then(function (response) {
+                    return response.data;
+                });
+            // website._id = (new Date()).getTime() + "";
+            // websites.push(website);
         }
 
-        function deleteWebsite(websiteId) {
-            var website = findWebsiteById(websiteId);
-            var index = websites.indexOf(website);
-            websites.splice(index, 1);
+        function deleteWebsite(userId, websiteId) {
+            return $http
+                .delete("/api/assignment/graduate/user/"+userId+"/website/" + websiteId)
+                .then(function (response) {
+                    return response.data;
+                });
+            // var website = findWebsiteById(websiteId);
+            // var index = websites.indexOf(website);
+            // websites.splice(index, 1);
         }
         
         function findWebsiteById(websiteId) {

@@ -25,7 +25,7 @@
                     Created
                 </div>
                 <div class="col-md-3 hidden-sm hidden-xs">
-                    Accessed
+                    Developer
                 </div>
                 <div class="col-xs-1">
                     <a href="#!/user/{{model.userId}}/website/new" style="color:white">
@@ -43,10 +43,10 @@
                     </a>
                 </div>
                 <div class="col-lg-3 visible-lg">
-                    {{website.created | date}}
+                    {{website.dateCreated | date : 'short'}}
                 </div>
                 <div class="col-md-3 hidden-sm hidden-xs">
-                    {{website.accessed | date}}
+                    {{website._user.username}}
                 </div>
                 <div class="col-xs-1">
                     <a href="#!/user/{{model.userId}}/website/{{website._id}}">

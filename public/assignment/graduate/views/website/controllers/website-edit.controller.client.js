@@ -19,8 +19,11 @@
         init();
 
         function deleteWebsite(websiteId) {
-            websiteService.deleteWebsite(websiteId);
-            $location.url('/user/'+model.userId+'/website');
+            websiteService
+                .deleteWebsite(model.userId, websiteId)
+                .then(function (status) {
+                    $location.url('/user/'+model.userId+'/website');
+                });
         }
     }
 })();

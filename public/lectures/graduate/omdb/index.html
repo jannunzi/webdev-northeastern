@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="omdbApp">
+<head>
+    <link href="../../../css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="../../../vendor/angular/angular.min.js"></script>
+    <script src="omdb.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div ng-controller="omdbController as model"
+         class="container-fluid">
+        <h1>OMDB API</h1>
+
+        <div class="row">
+            <div class="col-xs-4">
+                <h2>Search</h2>
+                <input ng-model="title" class="form-control"/>
+                <button ng-click="model.searchByTitle(title)" class="btn btn-primary btn-block">
+                    Search
+                </button>
+                <h2>Results</h2>
+                <ul class="list-group">
+                    <li ng-click="model.searchMovieByImdbID(movie.imdbID)" ng-repeat="movie in model.movies"
+                        class="list-group-item">
+                        <img ng-src="{{movie.Poster}}" width="50px"/>
+                        {{movie.Title}}
+                        {{movie.imdbID}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-8">
+                <h2>{{model.movie.Title}}</h2>
+                <img ng-src="{{model.movie.Poster}}" width="100px"/>
+                <h3>{{model.movie.Director}}</h3>
+                <p>{{model.movie.Plot}}</p>
+                <h3>Cast</h3>
+
+                <ul>
+                    <li ng-repeat="actor in model.movie.Actors.split(',')">
+                        {{actor}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

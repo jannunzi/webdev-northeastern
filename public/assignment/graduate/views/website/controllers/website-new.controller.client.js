@@ -18,8 +18,11 @@
 
         function createWebsite(website) {
             website.developerId = model.userId;
-            websiteService.createWebsite(website);
-            $location.url('/user/'+model.userId+'/website');
+            websiteService
+                .createWebsiteForUser(model.userId, website)
+                .then(function (status) {
+                    $location.url('/user/'+model.userId+'/website');
+                });
         }
     }
 })();
