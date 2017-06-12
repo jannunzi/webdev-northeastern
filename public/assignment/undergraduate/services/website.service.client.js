@@ -38,12 +38,14 @@
             
         }
         
-        function deleteWebsite(websiteId) {
-            var website = websites.find(function (website) {
-                return website._id === websiteId;
-            });
-            var index = websites.indexOf(website);
-            websites.splice(index, 1);
+        function deleteWebsite(userId, websiteId) {
+            var url = "/api/assignment/user/"+userId+"/website/"+websiteId;
+            return $http.delete(url);
+            // var website = websites.find(function (website) {
+            //     return website._id === websiteId;
+            // });
+            // var index = websites.indexOf(website);
+            // websites.splice(index, 1);
         }
 
         function findWebsiteById(websiteId) {

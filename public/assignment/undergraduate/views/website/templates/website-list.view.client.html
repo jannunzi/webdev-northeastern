@@ -19,7 +19,7 @@
                     Created
                 </div>
                 <div class="col-md-3 hidden-sm  hidden-xs">
-                    Updated
+                    Developer
                 </div>
                 <div class="col-sm-1">
                     <a href="#!/user/{{model.userId}}/website/new" style="color: #fff;">
@@ -38,10 +38,10 @@
                     </a>
                 </div>
                 <div class="col-lg-3 visible-lg">
-                    {{website.created | date}}
+                    {{website.dateCreated | date : 'short'}}
                 </div>
                 <div class="col-md-3 hidden-sm  hidden-xs">
-                    {{website.updated | date}}
+                    {{website._user.username}}
                 </div>
                 <div class="col-sm-1">
                     <a href="#!/user/{{model.userId}}/website/{{website._id}}">

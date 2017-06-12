@@ -3,6 +3,7 @@ var websiteModel = require('../models/website/website.model.server');
 
 app.get('/api/assignment/user/:userId/website', findAllWebsitesForUser);
 app.post('/api/assignment/user/:userId/website', createWebsite);
+app.delete('/api/assignment/user/:userId/website/:websiteId', deleteWebsite);
 
 var websites = [
     { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },
@@ -14,12 +15,21 @@ var websites = [
     { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
 ];
 
+function deleteWebsite(req, res) {
+    var websiteId = req.params.websiteId;
+    var userId = req.params.userId;
+    websiteModel
+        .deleteWebsiteFormUser(userId, websiteId)
+        .then(function (status) {
+            res.json(status);
+        });
+}
+
 function createWebsite(req, res) {
     var website = req.body;
     var userId = req.params.userId;
-    website._user = userId;
     websiteModel
-        .createWebsite(website)
+        .createWebsite(userId, website)
         .then(function (website) {
             res.json(website);
         });

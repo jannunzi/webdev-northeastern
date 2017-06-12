@@ -3,18 +3,25 @@
     
     function init() {
         var searchBtn = jQuery('#searchBtn');
-        var titleFld = jQuery('#title');
+        var titleFld  = jQuery('#title');
+        var resultsUl = $('#results');
+        var titleDetails = $('#titleDetails');
+        var directorDetails = $('#directorDetails');
+        var plotDetails = $('#plotDetails');
+        var actorsDetails = $('#actorsDetails');
+        var posterDetails = $('#posterDetails');
+
+        titleFld.val('star wars');
 
         searchBtn.click(searchMovie);
-        
+
         function searchMovie() {
             var titleText = titleFld.val();
             var url = "http://www.omdbapi.com/?apikey=852159f0&s=" + titleText;
-            console.log(url);
             jQuery.ajax({
                 url: url,
                 success: renderMovies,
-                error: renderError
+                error:   renderError
             });
         }
 
@@ -22,7 +29,6 @@
             // console.log(response);
             var movies = response.Search;
 
-            var resultsUl = $('#results');
             resultsUl.empty();
 
             for(var m in movies) {
@@ -31,18 +37,45 @@
                 var imdbID = movie.imdbID;
                 var poster = movie.Poster;
 
-                console.log([title, imdbID, poster]);
+                var liMovie   = $('<li>');
+                liMovie.attr('id', imdbID);
+                liMovie.addClass('list-group-item');
 
-                var liMovie = $('<li class="list-group-item">');
-                var posterImg = $('<img src="' + poster + '" width="50px"/>');
+                var posterImg = $('<img>');
+                posterImg.attr('width', '50px');
+                posterImg.attr('src', poster);
+
                 liMovie.append(posterImg);
                 liMovie.append(title);
-                liMovie.click(renderDetails);
+                liMovie.click(fetchDetails);
                 resultsUl.append(liMovie);
             }
-            
-            function renderDetails() {
-                console.log('render details');
+        }
+
+        function fetchDetails(event) {
+            var currentTarget = $(event.currentTarget);
+            var imdbID = currentTarget.attr('id');
+            var url = "http://www.omdbapi.com/?apikey=852159f0&i=" + imdbID;
+            jQuery.ajax({
+                url: url,
+                success: renderDetails,
+                error:   renderError
+            });
+        }
+
+        function renderDetails(movie) {
+            console.log(movie);
+            titleDetails.html(movie.Title);
+            directorDetails.html(movie.Director);
+            plotDetails.html(movie.Plot);
+            posterDetails.attr('src', movie.Poster);
+            var actors = movie.Actors.split(',');
+            actorsDetails.empty();
+            for(var a in actors) {
+                var liActor = $('<li>');
+                liActor.addClass('list-group-item');
+                liActor.html(actors[a]);
+                actorsDetails.append(liActor);
             }
         }
 

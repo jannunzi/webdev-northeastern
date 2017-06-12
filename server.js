@@ -15,8 +15,8 @@ blog(app);
 // var todo = require('./lectures/undergraduate/todo/app');
 // todo(app);
 
-// require('./assignment/undergrad/app');
-require('./assignment/graduates/app');
+require('./assignment/undergrad/app');
+// require('./assignment/graduates/app');
 
 // require('./experiments/oxford/oxford.service.server');
 
