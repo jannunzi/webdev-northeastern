@@ -61,9 +61,9 @@
         <a ng-click="model.deleteUser(model.user)"
            class="btn btn-danger btn-block">Unregister</a>
         <a class="btn btn-primary btn-block"
-           href="#!/user/{{model.userId}}/website">Websites</a>
+           href="#!/website">Websites</a>
         <a class="btn btn-danger  btn-block"
-           href="#!/login">Logout</a>
+           ng-click="model.logout()">Logout</a>
     </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">

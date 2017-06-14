@@ -59,5 +59,6 @@ function findUserById(userId) {
 }
 
 function createUser(user) {
+    user.roles = ['USER'];
     return userModel.create(user);
 }

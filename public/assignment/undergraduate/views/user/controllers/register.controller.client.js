@@ -29,9 +29,9 @@
                 };
                 // model.message = user;
                 userService
-                    .createUser(user)
+                    .register(user)
                     .then(function (user) {
-                        $location.url('/user/' + user._id);
+                        $location.url('/profile');
                     });
             }
         }

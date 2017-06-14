@@ -5,6 +5,8 @@ var userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
 
+    roles: [{type: String, default: 'USER', enum: ['USER', 'STUDENT', 'FACULTY', 'ADMIN']}],
+
     _websites: [
         {type: mongoose.Schema.Types.ObjectId, ref:"UndergraduateWebsiteModel"}
     ],

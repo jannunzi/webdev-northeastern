@@ -5,19 +5,34 @@
     
     function profileController($location,
                                $routeParams,
+                               currentUser,
                                userService) {
 
         var model = this;
 
-        model.userId = $routeParams['userId'];
+        // model.userId = $routeParams['userId'];
+        model.userId = currentUser._id;
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
+        model.logout = logout;
 
         // model.user = userService.findUserById(model.userId);
-        userService
-            .findUserById(model.userId)
-            .then(renderUser, userError);
+        // userService
+        //     .findUserById(model.userId)
+        //     .then(renderUser, userError);
+        function init() {
+            renderUser(currentUser);
+        }
+        init();
 
+        function logout() {
+            userService
+                .logout()
+                .then(function () {
+                    $location.url('/login');
+                });
+        }
+        
         function deleteUser(user) {
             userService
                 .deleteUser(user._id)
