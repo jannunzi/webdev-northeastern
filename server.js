@@ -52,4 +52,6 @@ require('./assignment/undergrad/app');
 
 // require('./experiments/oxford/oxford.service.server');
 
+require('./lectures/undergraduate/ejs/hello');
+
 app.listen(process.env.PORT || 3000);
