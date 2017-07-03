@@ -1,0 +1,26 @@
+<%  var fields = entities[entityName].fields;
+%>
+
+<div class="container-fluid">
+<h1><%= entityName %> Edit Page</h1>
+
+<%  for(var fieldName in fields) {
+%>
+        <label><%= fieldName %></label>
+        <input ng-model="model.<%= entityName %>.<%= fieldName %>" class="form-control"/>
+<%  }
+%>
+    <button ng-click="model.create<%= entityName %>(model.<%= entityName %>)"
+            ng-if="model.<%= entityName %>Id === 'new'"
+            class="btn btn-block btn-primary">
+        Create
+    </button>
+    <button ng-if="model.<%= entityName %>Id !== 'new'"
+            class="btn btn-block btn-success">
+        Update
+    </button>
+    <a href="#!/wam/<%= entityName %>"
+       class="btn btn-block btn-danger">
+        Cancel
+    </a>
+</div>

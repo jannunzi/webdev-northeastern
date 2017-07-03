@@ -1,0 +1,21 @@
+<form action="/experiments/ejs/crud" method="post">
+<table>
+    <tr>
+        <td>
+            <input name="username"/>
+        </td>
+        <td>
+            <button type="submit" name="action" value="create">&plus;</button>
+        </td>
+    </tr>
+<%  for(var u in users) {
+%>  <tr>
+        <td><%= users[u].username %></td>
+        <td>
+            <a href="/experiments/ejs/crud/delete/<%=users[u]._id%>">&minus;</a>
+        </td>
+    </tr>
+<%  }
+%>
+</table>
+</form>

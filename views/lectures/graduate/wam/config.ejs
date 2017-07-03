@@ -1,0 +1,23 @@
+(function () {
+    angular
+        .module("<%= name %>")
+        .config(configuration);
+    
+    function configuration($routeProvider) {
+        $routeProvider
+<%      for(var entityName in entities) {
+-%>
+            .when("/wam/<%= entityName %>", {
+                templateUrl: "/wam/<%= entityName %>/templates/list/<%= entityName %>-list.view.client.html",
+                controller: "<%= entityName %>ListController",
+                controllerAs: "model"
+            })
+            .when("/wam/<%= entityName %>/:<%= entityName %>Id", {
+                templateUrl: "/wam/<%= entityName %>/templates/edit/<%= entityName %>-edit.view.client.html",
+                controller: "<%= entityName %>EditController",
+                controllerAs: "model"
+            })
+<%      }
+-%>
+    }
+})();

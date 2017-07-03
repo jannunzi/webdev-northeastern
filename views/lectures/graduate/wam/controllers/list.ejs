@@ -1,0 +1,14 @@
+(function () {
+    angular
+        .module("<%= name %>")
+        .controller("<%= entityName %>ListController", <%= entityName %>ListController);
+    
+    function <%= entityName %>ListController(<%= entityName %>Service) {
+        var model = this;
+        <%= entityName %>Service
+            .findAll<%=entityName%>s()
+            .then(function(<%= entityName %>s){
+                model.<%= entityName %>s = <%= entityName %>s;
+            });
+    }
+})();

@@ -1,0 +1,33 @@
+{
+  "name": "movieApp",
+  "entities": {
+    "director": {},
+    "user": {},
+    "review": {},
+    "movie": {
+      "labels": {
+      },
+      "fields": {
+        "name": {
+          "cols": "6",
+          "placeholder": "Titanic"
+        },
+        "releaseDate": {
+          "cols": "3",
+          "type": "date",
+          "label": "Release Date"
+        },
+        "rating": {
+          "cols": "2"
+        },
+        "director": {
+          "hidden": true
+        },
+        "plot": {
+          "hidden": true
+        }
+      }
+    },
+    "actor": {}
+  }
+}

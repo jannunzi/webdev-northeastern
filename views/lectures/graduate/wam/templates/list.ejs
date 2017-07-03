@@ -1,0 +1,15 @@
+<br/>
+<div class="container-fluid">
+<ul class="list-group">
+    <li class="list-group-item active">
+        <a href="#!/wam/<%= entityName %>/new" class="pull-right" style="color: #fff;">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+        <%= entityName %>
+    </li>
+    <li ng-repeat="<%= entityName %> in model.<%= entityName %>s"
+        class="list-group-item">
+        {{<%= entityName %>}}
+    </li>
+</ul>
+</div>

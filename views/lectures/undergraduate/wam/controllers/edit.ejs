@@ -1,0 +1,42 @@
+(function(){
+    angular
+        .module("<%= name %>")
+        .controller("<%= entityName %>EditController",
+                    <%= entityName %>EditController);
+
+    function <%= entityName %>EditController($routeParams,
+                                            $location,
+                                            <%=entityName%>Service) {
+        var model = this;
+        model.<%= entityName%>Id = $routeParams.<%= entityName%>Id;
+
+        model.create<%= entityName%> = create<%= entityName%>;
+        model.update<%= entityName%> = update<%= entityName%>;
+
+        function init() {
+            if(model.<%= entityName%>Id != "new") {
+                findById(model.<%= entityName%>Id);
+            }
+        }
+        init();
+
+        function findById(<%= entityName%>Id) {
+            <%=entityName%>Service
+                .findById(<%=entityName%>Id)
+                .then(function(<%=entityName%>){
+                    model.<%=entityName%> = <%=entityName%>;
+                });
+        }
+
+        function create<%= entityName%>(<%=entityName%>) {
+            <%=entityName%>Service
+                .create<%=entityName%>(<%=entityName%>)
+                .then(function(){
+                    $location.url("/<%=entityName%>");
+                });
+        }
+        function update<%= entityName%>(<%=entityName%>) {
+
+        }
+    }
+})();

@@ -4,7 +4,6 @@ var cookieParser = require('cookie-parser');
 var session      = require('express-session');
 var passport = require('passport');
 
-
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
@@ -13,10 +12,7 @@ app.use(session({ secret: "put some text here" }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./lectures/graduate/session/app');
-
-
-
+// require('./lectures/graduate/session/app');
 
 app.get('/api/undergraduate/session', function (req, res) {
     console.log(req.session);
@@ -46,12 +42,33 @@ blog(app);
 
 // var todo = require('./lectures/undergraduate/todo/app');
 // todo(app);
-
 require('./assignment/undergrad/app');
 // require('./assignment/graduates/app');
-
 // require('./experiments/oxford/oxford.service.server');
+// require('./lectures/undergraduate/ejs/hello');
+// require('./experiments/ejs/crud');
+// require('./lectures/undergraduate/ejs/crud');
+// require('./lectures/graduate/ejs/crud');
+// require('./lectures/graduate/mongojs');
 
-require('./lectures/undergraduate/ejs/hello');
+// var movieApp = require('./movies.json');
+// require('./lectures/undergraduate/wam')(movieApp);
+
+var application = {
+    "name": "charterApp",
+    "entities": {
+        "boat": {
+            "fields": {
+                "brand": {},
+                "length": {},
+                "type": {}
+            }
+        },
+        "crew": {},
+        "booking": {},
+        "user": {}
+    }
+};
+require('./lectures/graduate/wam')(application);
 
 app.listen(process.env.PORT || 3000);

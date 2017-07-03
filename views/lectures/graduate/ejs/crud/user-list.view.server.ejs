@@ -1,0 +1,36 @@
+<link href="/css/bootstrap.css" rel="stylesheet"/>
+<div class="container-fluid">
+<h1>List of Users</h1>
+
+    <form action="/lectures/graduate/ejs/crud/user" method="post">
+<ul class="list-group">
+    <li class="list-group-item">
+        <input value="<%= selectedUser.username %>"
+               name="username"
+               class="form-control"/>
+        <input value="<%= selectedUser._id %>"
+               name="_id"
+               type="hidden"
+               class="form-control"/>
+        <button name="action" value="create"
+                class="btn btn-primary btn-block"
+                type="submit">Create User</button>
+        <button name="action" value="update"
+                class="btn btn-success btn-block"
+                type="submit">Update User</button>
+    </li>
+<%  for(var u in theusers) {
+%>      <li class="list-group-item">
+            <%= theusers[u].username %>
+        <a class="pull-right" href="/lectures/graduate/ejs/crud/user/<%= theusers[u]._id %>/select">
+            <span class="glyphicon glyphicon-cog"></span>
+        </a>
+        <a class="pull-right" href="/lectures/graduate/ejs/crud/user/<%= theusers[u]._id %>/delete">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+        </li>
+<%  }
+%>
+</ul>
+    </form>
+</div>

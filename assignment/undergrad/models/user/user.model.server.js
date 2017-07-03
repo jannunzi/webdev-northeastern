@@ -12,11 +12,16 @@ userModel.createUser = createUser;
 userModel.findUserById = findUserById;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.deleteUser = deleteUser;
+userModel.findAllUsers = findAllUsers;
 userModel.updateUser = updateUser;
 userModel.addWebsite = addWebsite;
 userModel.removeWebsite = removeWebsite;
 
 module.exports = userModel;
+
+function findAllUsers() {
+    return userModel.find();
+}
 
 function removeWebsite(userId, websiteId) {
     return userModel
@@ -38,9 +43,10 @@ function addWebsite(userId, websiteId) {
 }
 
 function updateUser(userId, newUser) {
-    delete newUser.username;
+//    delete newUser.username;
     return userModel.update({_id: userId}, {
         $set : {
+            username: newUser.username,
             firstName: newUser.firstName,
             lastName: newUser.lastName,
             email: newUser.email,
