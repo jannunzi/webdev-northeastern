@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container-fluid">
+<form method="post"
+      action="/path/to/form/service">
+    <label for="firstName">First Name</label>
+    <input name="firstName"
+           id="firstName"
+           value="Bob"
+           type="text"
+           placeholder="Alice"
+           class="form-control"/>
+    <label for="lastName">Last Name</label>
+    <input name="lastName"
+           id="lastName"
+           type="text"
+           placeholder="Wonderland"
+           class="form-control"/>
+    <label for="email">Email</label>
+    <input name="email"
+           id="email"
+           type="email"
+           placeholder="alice@wonderland.com"
+           class="form-control"/>
+    <label for="dob">Date of Birth</label>
+    <input name="dob"
+           id="dob"
+           type="date"
+           class="form-control"/>
+    <br/>
+
+    <label>Preferred Contact Method</label>
+    <select name="preferredContactMethod"
+            class="form-control">
+        <option value="PHONE">Phone (where we can text you)</option>
+        <option value="PIAZZA">Piazza</option>
+        <option value="EMAIL">Email</option>
+    </select>
+
+    <label>Favorite Color</label>
+    <br/>
+    <label>
+        <input name="favoriteColor"
+               type="radio"
+               value="yellow">
+        Yellow
+    </label><br/>
+    <label>
+        <input name="favoriteColor"
+               type="radio"
+               value="blue">
+        Blue
+    </label><br/>
+    <label>
+        <input name="favoriteColor"
+               type="radio"
+               value="red">
+        Red
+    </label><br/>
+
+    <label>Favorite Movie Generes</label><br/>
+    <label>
+        <input name="favoriteGenre" type="checkbox" value="horror">
+        Horror
+    </label><br/>
+    <label>
+        <input name="favoriteGenre" type="checkbox" value="comedy">
+        Comedy
+    </label><br/>
+    <label>
+        <input name="favoriteGenre" type="checkbox" value="scifi">
+        Science Fiction
+    </label><br/>
+
+    <button type="submit" class="btn btn-block btn-primary">
+        Submit
+    </button>
+</form>
+
+
+
+<h1>HTML Lists</h1>
+
+<h2>Unordered List</h2>
+<ul>
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+</ul>
+
+<h2>Ordered List</h2>
+<ol>
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+</ol>
+
+<h2>Horizontal Lists</h2>
+<ol class="jga-horizontal">
+    <li>Login</li>
+    <li>Register</li>
+    <li>Profile</li>
+    <li>Admin</li>
+</ol>
+
+
+
+    <h1>Tables</h1>
+
+    <table border="4">
+        <thead>
+            <tr>
+                <th>From Page</th>
+                <th>Event</th>
+                <th>To Page</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">Login Page</td>
+                <td>Register</td>
+                <td>Register Page</td>
+            </tr>
+            <tr>
+                <td>Login</td>
+                <td rowspan="2">Profile Page</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Register Page</td>
+                <td>Register</td>
+            </tr>
+            <tr>
+                <td>Cancel</td>
+                <td>Login Page</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+    <h2>CS4550</h2>
+    <h3>Section 1</h3>
+    <h3>Section 2</h3>
+    <h2>CS5610</h2>
+    <h3>Section 1</h3>
+    <h3>Section 2</h3>
+    <h3>Section 3</h3>
+</div>
+</body>
+</html>
