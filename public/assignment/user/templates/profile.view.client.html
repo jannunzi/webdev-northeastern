@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>-->
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet"/>
-</head>
-<body>
-
-<div class="jga jga-profile">
+<div class="jga jga-profile" ng-controller="profileController">
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -38,18 +27,21 @@
 
         <label for="firstName">First Name</label>
         <input name="firstName"
+               ng-model="user.firstName"
                placeholder="Alice"
                class="form-control"
                id="firstName"/>
 
         <label for="lastName">Last Name</label>
         <input name="lastName"
+               ng-model="user.lastName"
                placeholder="Wonderland"
                class="form-control"
                id="lastName"/>
 
         <label for="username">Username</label>
         <input name="username"
+               ng-model="user.username"
                readonly
                value="alice"
                placeholder="alice"
@@ -79,5 +71,3 @@
     </div>
 
 </div>
-</body>
-</html>
