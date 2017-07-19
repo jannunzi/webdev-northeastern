@@ -11,6 +11,7 @@
         {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
     ];
 
+
     function profileController($scope, $routeParams) {
         var userId = $routeParams["userId"];
         for(var u in users) {
