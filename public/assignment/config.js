@@ -23,7 +23,9 @@
             })
         // website routes
             .when("/user/:userId/website", {
-                templateUrl: "website/templates/website-list.html"
+                templateUrl: "website/templates/website-list.view.client.html",
+                controller: "websiteListController",
+                controllerAs: "model"
             })
     }
 })();

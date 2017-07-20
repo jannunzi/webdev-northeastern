@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>-->
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet"/>
-</head>
-<body>
 
 <div class="jga jga-profile">
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -49,54 +39,21 @@
                     </div>
                 </div>
             </li>
-            <li class="list-group-item">
+            <li ng-repeat="website in model.websites" class="list-group-item">
                 <div class="row">
-                    <div class="col-xs-4">Wikipedia</div>
+                    <div class="col-xs-4">{{website.name}}</div>
                     <div class="col-xs-6 col-sm-3">2017-07-05</div>
                     <div class="col-sm-3 hidden-xs">3,123,234</div>
                     <div class="col-xs-2">
                         <span class="glyphicon glyphicon-cog pull-right"></span>
                     </div>
                 </div>
-
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-4">
-                        Facebook
-                    </div>
-                    <div class="col-xs-6 col-sm-3"></div>
-                    <div class="col-sm-3 hidden-xs"></div>
-                    <div class="col-xs-2">
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-4">Twitter
-                    </div>
-                    <div class="col-xs-6 col-sm-3"></div>
-                    <div class="col-sm-3 hidden-xs"></div>
-                    <div class="col-xs-2">
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </div>
-                </div>
-
-
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-4">Amazon</div>
-                    <div class="col-xs-3"></div>
-                    <div class="col-xs-3"></div>
-                    <div class="col-xs-2"></div>
-                </div>
             </li>
         </ul>
+
+
+        {{model.websites}}
 
     </div>
 
 </div>
-</body>
-</html>
