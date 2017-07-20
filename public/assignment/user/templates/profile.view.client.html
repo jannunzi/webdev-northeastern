@@ -1,4 +1,4 @@
-<div class="jga jga-profile" ng-controller="profileController">
+<div class="jga jga-profile">
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -27,21 +27,21 @@
 
         <label for="firstName">First Name</label>
         <input name="firstName"
-               ng-model="user.firstName"
+               ng-model="model.user.firstName"
                placeholder="Alice"
                class="form-control"
                id="firstName"/>
 
         <label for="lastName">Last Name</label>
         <input name="lastName"
-               ng-model="user.lastName"
+               ng-model="model.user.lastName"
                placeholder="Wonderland"
                class="form-control"
                id="lastName"/>
 
         <label for="username">Username</label>
         <input name="username"
-               ng-model="user.username"
+               ng-model="model.user.username"
                readonly
                value="alice"
                placeholder="alice"
@@ -62,19 +62,19 @@
                id="dob"/>
 
         <a class="btn btn-default btn-primary btn-block"
-           href="website-list.html"
+           href="#"
            role="button">Websites</a>
 
         <a class="btn btn-default btn-danger btn-block"
-           href="login.html"
+           href="#!/login"
            role="button">Logout</a>
 
         <a class="btn btn-default btn-danger btn-block"
-           ng-click="unregister()"
+           ng-click="model.unregister()"
            role="button">Unregister</a>
 
         <a class="btn btn-default btn-primary btn-block"
-           ng-click="updateUser()"
+           ng-click="model.updateUser()"
            role="button">Update</a>
     </div>
 
