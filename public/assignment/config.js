@@ -27,5 +27,10 @@
                 controller: "websiteListController",
                 controllerAs: "model"
             })
+            .when("/user/:userId/website/new", {
+                templateUrl: "website/templates/website-new.view.client.html",
+                // controller: "websiteListController",
+                // controllerAs: "model"
+            })
     }
 })();
