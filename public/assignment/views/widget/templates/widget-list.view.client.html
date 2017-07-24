@@ -2,26 +2,7 @@
     <h2>Widget List</h2>
 
     <div ng-repeat="widget in model.widgets">
-        <div ng-switch="widget.widgetType">
-            <div ng-switch-when="HEADING">
-                <div ng-switch="widget.size">
-                    <h1 ng-switch-when="1">{{widget.text}}</h1>
-                    <h2 ng-switch-when="2">{{widget.text}}</h2>
-                    <h3 ng-switch-when="3">{{widget.text}}</h3>
-                    <h4 ng-switch-when="4">{{widget.text}}</h4>
-                    <h5 ng-switch-when="5">{{widget.text}}</h5>
-                    <h6 ng-switch-when="6">{{widget.text}}</h6>
-                </div>
-            </div>
-            <div ng-switch-when="IMAGE">
-                <img ng-src="{{widget.url}}" width="100%">
-            </div>
-            <div ng-switch-when="HTML" ng-bind-html="model.trustHtmlContent(widget.text)">
-            </div>
-            <div ng-switch-when="YOUTUBE">
-                <iframe width="560" height="315" src="{{model.trustUrlResource(widget.url)}}" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
+        <div ng-include="model.getWidgetIncludeUrl(widget.widgetType)"></div>
     </div>
 
     {{model.widgets}}

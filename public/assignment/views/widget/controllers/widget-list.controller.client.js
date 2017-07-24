@@ -7,6 +7,7 @@
         var model = this;
         model.trustHtmlContent = trustHtmlContent;
         model.trustUrlResource = trustUrlResource;
+        model.getWidgetIncludeUrl = getWidgetIncludeUrl;
         function init() {
             model.hello = "Hello from widgetListController";
             model.widgets = [
@@ -33,6 +34,10 @@
 
         function trustHtmlContent(htmlContent) {
             return $sce.trustAsHtml(htmlContent);
+        }
+
+        function getWidgetIncludeUrl(widgetType) {
+            return "views/widget/templates/widgets/widget-" + widgetType + ".view.client.html";
         }
     }
 })();
