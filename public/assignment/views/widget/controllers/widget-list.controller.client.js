@@ -6,6 +6,7 @@
     function widgetListController($sce) {
         var model = this;
         model.trustHtmlContent = trustHtmlContent;
+        model.trustUrlResource = trustUrlResource;
         function init() {
             model.hello = "Hello from widgetListController";
             model.widgets = [
@@ -21,6 +22,14 @@
             ];
         }
         init();
+        
+        function trustUrlResource(url) {
+            console.log(url);
+            var youtubeUrl = "https://www.youtube.com/embed/";
+            var urlParts = url.split("/");
+            youtubeUrl += urlParts[urlParts.length-1];
+            return $sce.trustAsResourceUrl(youtubeUrl);
+        }
 
         function trustHtmlContent(htmlContent) {
             return $sce.trustAsHtml(htmlContent);

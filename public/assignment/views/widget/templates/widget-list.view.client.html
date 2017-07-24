@@ -19,7 +19,7 @@
             <div ng-switch-when="HTML" ng-bind-html="model.trustHtmlContent(widget.text)">
             </div>
             <div ng-switch-when="YOUTUBE">
-                this is a youtube video
+                <iframe width="560" height="315" src="{{model.trustUrlResource(widget.url)}}" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
