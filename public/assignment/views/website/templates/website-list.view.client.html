@@ -26,31 +26,7 @@
 
     <div class="container-fluid">
 
-        <ul class="list-group">
-            <li class="list-group-item active">
-                <div class="row">
-                    <div class="col-xs-4">Name</div>
-                    <div class="col-xs-6 col-sm-3">Updated</div>
-                    <div class="col-sm-3 hidden-xs">Visits</div>
-                    <div class="col-xs-2">
-                        <a href="#!/user/{{model.userId}}/website/new" style="color:white">
-                            <span class="pull-right glyphicon glyphicon-plus"></span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <li ng-repeat="website in model.websites" class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-4">{{website.name}}</div>
-                    <div class="col-xs-6 col-sm-3">2017-07-05</div>
-                    <div class="col-sm-3 hidden-xs">3,123,234</div>
-                    <div class="col-xs-2">
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </div>
-                </div>
-            </li>
-        </ul>
-
+        <div ng-include="'views/website/templates/website-list.component.client.html'"></div>
 
         {{model.websites}}
 

@@ -29,80 +29,7 @@
         <div class="row">
             <div class="col-xs-3 visible-lg jga-split-view-left">
 
-                <ul class="list-group">
-                    <li class="list-group-item active">
-                        <div class="row">
-                            <div class="col-xs-10">Name</div>
-                            <div class="col-xs-2">
-                                <a href="website-new.html" style="color:white">
-                                    <span class="pull-right glyphicon glyphicon-plus"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-10">Wikipedia</div>
-                            <div class="col-xs-2">
-                                <span class="glyphicon glyphicon-cog pull-right"></span>
-                            </div>
-                        </div>
-
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-10">
-                                Facebook
-                            </div>
-                            <div class="col-xs-2">
-                                <span class="glyphicon glyphicon-cog pull-right"></span>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-10">Twitter
-                            </div>
-                            <div class="col-xs-2">
-                                <span class="glyphicon glyphicon-cog pull-right"></span>
-                            </div>
-                        </div>
-
-
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-xs-10">Amazon</div>
-                            <div class="col-xs-2"></div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                    <li class="list-group-item">Website ABC</li>
-                </ul>
+                <div ng-include="'views/website/templates/website-list.component.client.html'"></div>
 
             </div>
             <div class="col-xs-12 col-lg-9 jga-split-view-right">
@@ -126,7 +53,7 @@
                    role="button">Create</a>
 
                 <a class="btn btn-default btn-danger btn-block"
-                   href="website-list.html"
+                   href="#!/user/{{model.userId}}/website"
                    role="button">Cancel</a>
             </div>
         </div>

@@ -34,8 +34,8 @@
             })
             .when("/user/:userId/website/new", {
                 templateUrl: "views/website/templates/website-new.view.client.html",
-                // controller: "websiteListController",
-                // controllerAs: "model"
+                controller: "websiteNewController",
+                controllerAs: "model"
             })
     }
 })();
