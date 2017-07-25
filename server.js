@@ -10,5 +10,6 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 require("./test/app");
+require("./assignment/app");
 
 app.listen(3000);
