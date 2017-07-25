@@ -3,7 +3,7 @@
         .module("WamApp")
         .factory("userService", userService);
     
-    function userService() {
+    function userService($http) {
 
         var users = [
             {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder", isAdmin: true  },
@@ -46,12 +46,7 @@
             return null;
         }
         function findUserById(userId) {
-            for(var u in users) {
-                if(users[u]._id === userId) {
-                    return users[u];
-                }
-            }
-            return null;
+            return $http.get("http://localhost:3000/user/"+userId);
         }
 
         function findUserByUsernameAndPassword(username, password) {
