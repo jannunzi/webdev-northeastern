@@ -46,7 +46,7 @@
             return null;
         }
         function findUserById(userId) {
-            return $http.get("/user/"+userId);
+            return $http.get("/api/user/"+userId);
         }
 
         function findUserByUsernameAndPassword(username, password) {
