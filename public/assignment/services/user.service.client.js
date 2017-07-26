@@ -38,12 +38,8 @@
         }
 
         function findUserByUsername(username) {
-            for(var u in users) {
-                if(users[u].username === username) {
-                    return users[u];
-                }
-            }
-            return null;
+            var url = "/api/user?username="+username;
+            return $http.get(url);
         }
         function findUserById(userId) {
             return $http.get("/api/user/"+userId);
