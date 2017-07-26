@@ -32,9 +32,9 @@
         }
         
         function registerUser(user) {
-            user._id = (new Date()).getTime() + "";
-            users.push(user);
-            return user;
+            var url = "/api/user";
+
+            return $http.post(url, user);
         }
 
         function findUserByUsername(username) {

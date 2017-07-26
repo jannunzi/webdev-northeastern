@@ -19,8 +19,11 @@
                 .then(function (response) {
                     var _user = response.data;
                     if(_user === "0") {
-                        var user = userService.registerUser(user);
-                        $location.url("/profile/"+user._id);
+                        var promise2 = userService.registerUser(user);
+                        promise2.then(function (response) {
+                            _user = response.data;
+                            $location.url("/profile/" + _user._id);
+                        });
                     } else {
                         model.error = "User already exists";
                     }

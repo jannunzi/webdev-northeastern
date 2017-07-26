@@ -11,6 +11,14 @@ var users = [
 app.get("/api/users", getAllUsers);
 app.get("/api/user/:userId", getUserById);
 app.get("/api/user", findUser);
+app.post("/api/user", registerUser);
+
+function registerUser(req, res) {
+    var user = req.body;
+    user._id = (new Date()).getTime() + "";
+    users.push(user);
+    res.send(user);
+}
 
 function findUser(req, res) {
     var username = req.query.username;
