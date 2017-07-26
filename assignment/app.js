@@ -7,9 +7,24 @@ var users = [
     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
 ];
 
-// html handlers
+// http handlers
 app.get("/api/users", getAllUsers);
 app.get("/api/user/:userId", getUserById);
+app.get("/api/user", findUserByUsernameAndPassword);
+
+function findUserByUsernameAndPassword(req, res) {
+    var username = req.query.username;
+    var password = req.query.password;
+
+    for(var u in users) {
+        var _user = users[u];
+        if(_user.username === username && _user.password === password) {
+            res.send(_user);
+            return;
+        }
+    }
+    res.send("0");
+}
 
 function getAllUsers(req, response) {
     response.send(users);
