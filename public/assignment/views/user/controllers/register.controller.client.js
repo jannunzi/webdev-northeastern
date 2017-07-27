@@ -14,19 +14,18 @@
         init();
         
         function registerUser(user) {
-            var promise = userService.findUserByUsername(user.username);
-            promise
+            userService.findUserByUsername(user.username)
                 .then(function (response) {
                     var _user = response.data;
                     if(_user === "0") {
-                        var promise2 = userService.registerUser(user);
-                        promise2.then(function (response) {
-                            _user = response.data;
-                            $location.url("/profile/" + _user._id);
-                        });
+                        return userService.registerUser(user)
                     } else {
                         model.error = "User already exists";
                     }
+                })
+                .then(function (response) {
+                    _user = response.data;
+                    $location.url("/profile/" + _user._id);
                 });
         }
     }
