@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">New Website</a>
+            <a class="navbar-brand" href="#">Edit Website</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -36,23 +36,23 @@
 
                 <label for="name">Name</label>
                 <input name="firstName"
-                       ng-model="website.name"
+                       ng-model="model.website.name"
                        placeholder="Facebook"
                        class="form-control"
                        id="name"/>
 
                 <label for="description">Description</label>
                 <textarea name="firstName"
-                          ng-model="website.description"
+                          ng-model="model.website.description"
                           rows="5"
                           placeholder="Largest country in the world"
                           class="form-control"
                           id="description"></textarea>
 
 
-                <a class="btn btn-default btn-primary btn-block"
-                   ng-click="model.createWebsite(website)"
-                   role="button">Create</a>
+                <a class="btn btn-default btn-danger btn-block"
+                   ng-click="model.deleteWebsite(website)"
+                   role="button">Delete</a>
 
                 <a class="btn btn-default btn-danger btn-block"
                    href="#!/user/{{model.userId}}/website"

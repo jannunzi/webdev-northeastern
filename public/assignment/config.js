@@ -42,6 +42,11 @@
                 controller: "websiteNewController",
                 controllerAs: "model"
             })
+            .when("/user/:userId/website/:websiteId", {
+                templateUrl: "views/website/templates/website-edit.view.client.html",
+                controller: "websiteEditController",
+                controllerAs: "model"
+            })
             // widget routes
             .when("/user/:userId/website/:websiteId/page/:pageId/widget", {
                 templateUrl: "views/widget/templates/widget-list.view.client.html",
