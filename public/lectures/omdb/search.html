@@ -1,0 +1,21 @@
+<h1>OMDB API</h1>
+<h2>Search By Movie Title</h2>
+<input placeholder="Batman"
+       ng-model="movieTitle"
+       class="form-control"/>
+<button ng-click="model.searchMovieByTitle(movieTitle)" class="btn btn-primary btn-block">
+    Search
+</button>
+
+<table class="table">
+    <tr ng-repeat="movie in model.movies.Search">
+        <td>
+            <a href="#!/details/{{movie.imdbID}}">
+                {{movie.Title}}
+            </a>
+        </td>
+        <td>
+            <img ng-src="{{movie.Poster}}"/>
+        </td>
+    </tr>
+</table>
