@@ -6,8 +6,18 @@ userModel.createUser = createUser;
 userModel.findUserById = findUserById;
 userModel.updateUser = updateUser;
 userModel.findUserByCredentials = findUserByCredentials;
+userModel.addWebsite = addWebsite;
 
 module.exports = userModel;
+
+function addWebsite(developerId, websiteId) {
+    return userModel
+        .findById(developerId)
+        .then(function (user) {
+            user.websites.push(websiteId);
+            return user.save();
+        });
+}
 
 function findUserByCredentials(username, password) {
     return userModel.findOne({username: username, password: password});
