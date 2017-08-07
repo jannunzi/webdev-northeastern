@@ -26,15 +26,6 @@ function updateUser(req, res) {
         }, function (err) {
             res.sendStatus(404).send(err);
         });
-
-    // for(var u in users) {
-    //     if(users[u]._id === userId) {
-    //         users[u] = user;
-    //         res.send(user)
-    //         return;
-    //     }
-    // }
-    // res.sendStatus(404);
 }
 
 function registerUser(req, res) {
@@ -44,9 +35,6 @@ function registerUser(req, res) {
         .then(function (user) {
             res.json(user);
         })
-    // user._id = (new Date()).getTime() + "";
-    // users.push(user);
-    // res.send(user);
 }
 
 function findUser(req, res) {
@@ -64,13 +52,6 @@ function findUser(req, res) {
                 res.sendStatus(404).send(err);
                 return;
             })
-        // for(var u in users) {
-        //     var _user = users[u];
-        //     if(_user.username === username && _user.password === password) {
-        //         res.send(_user);
-        //         return;
-        //     }
-        // }
         return;
     } else if(username) {
         for(var u in users) {
