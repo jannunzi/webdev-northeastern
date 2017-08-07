@@ -34,12 +34,20 @@ function createWebsite(req, res) {
 }
 
 function findWebsiteById(req, res) {
-    for(var w in websites) {
-        if(websites[w]._id === req.params.websiteId) {
-            res.json(websites[w]);
-        }
-    }
-    res.sendStatus(404);
+    
+    websiteModel
+        .findWebsiteById(req.params.websiteId)
+        .then(function (websiteDoc) {
+            res.json(websiteDoc);
+        }, function (err) {
+            res.sendStatus(404).send(err);
+        });
+    
+    // for(var w in websites) {
+    //     if(websites[w]._id === req.params.websiteId) {
+    //         res.json(websites[w]);
+    //     }
+    // }
 }
 
 function findWebsitesForUser(req, res) {
