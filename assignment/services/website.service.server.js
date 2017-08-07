@@ -44,14 +44,21 @@ function findWebsiteById(req, res) {
 
 function findWebsitesForUser(req, res) {
     var userId = req.params.userId;
-
-    var sites = [];
-
-    for(var w in websites) {
-        if(websites[w].developerId === userId) {
-            sites.push(websites[w]);
-        }
-    }
-
-    res.json(sites);
+    
+    websiteModel
+        .findWebsitesForUser(userId)
+        .then(function (websites) {
+            res.json(websites);
+        });
+    
+    //
+    // var sites = [];
+    //
+    // for(var w in websites) {
+    //     if(websites[w].developerId === userId) {
+    //         sites.push(websites[w]);
+    //     }
+    // }
+    //
+    // res.json(sites);
 }
