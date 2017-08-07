@@ -1,5 +1,7 @@
 var app = require("../../express");
 
+var websiteModel = require("../models/website.model.server");
+
 app.get ("/api/user/:userId/website", findWebsitesForUser);
 app.get ("/api/user/:userId/website/:websiteId", findWebsiteById);
 app.post("/api/user/:userId/website", createWebsite);
@@ -17,11 +19,18 @@ var websites = [
 function createWebsite(req, res) {
     var website = req.body;
     var userId = req.params.userId;
-    website.developerId = userId;
-    website._id = (new Date()).getTime() + "";
-
-    websites.push(website);
-    res.json(website);
+    websiteModel
+        .createWebsite(userId, website)
+        .then(function (websiteDoc) {
+            res.json(websiteDoc);
+        }, function (err) {
+            res.statusCode(500).send(err);
+        })
+    // website.developerId = userId;
+    // website._id = (new Date()).getTime() + "";
+    //
+    // websites.push(website);
+    // res.json(website);
 }
 
 function findWebsiteById(req, res) {
