@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-4">Name</div>
             <div class="col-xs-6 col-sm-3">Created</div>
-            <div class="col-sm-3 hidden-xs">Visits</div>
+            <div class="col-sm-3 hidden-xs">Developer</div>
             <div class="col-xs-2">
                 <a href="#!/user/{{model.userId}}/website/new" style="color:white">
                     <span class="pull-right glyphicon glyphicon-plus"></span>
@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-xs-4">{{website.name}}</div>
             <div class="col-xs-6 col-sm-3">{{website.created | date : 'medium'}}</div>
-            <div class="col-sm-3 hidden-xs">3,123,234</div>
+            <div class="col-sm-3 hidden-xs">{{website.developer.username}}</div>
             <div class="col-xs-2">
                 <a href="#!/user/{{model.userId}}/website/{{website._id}}">
                 <span class="glyphicon glyphicon-cog pull-right"></span>
