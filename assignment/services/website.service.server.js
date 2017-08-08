@@ -19,8 +19,9 @@ var websites = [
 
 function deleteWebsite(req, res) {
     var websiteId = req.params.websiteId;
+    var developerId = req.params.userId;
     websiteModel
-        .deleteWebsite(websiteId)
+        .deleteWebsite(developerId, websiteId)
         .then(function (status) {
             res.json(status);
         });

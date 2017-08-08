@@ -7,8 +7,19 @@ userModel.findUserById = findUserById;
 userModel.updateUser = updateUser;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.addWebsite = addWebsite;
+userModel.removeWebsite = removeWebsite;
 
 module.exports = userModel;
+
+function removeWebsite(developerId, websiteId) {
+    return userModel
+        .findById(developerId)
+        .then(function (user) {
+            var index = user.websites.indexOf(websiteId);
+            user.websites.splice(index, 1);
+            return user.save();
+        })
+}
 
 function addWebsite(developerId, websiteId) {
     return userModel

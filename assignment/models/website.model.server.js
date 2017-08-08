@@ -10,8 +10,12 @@ websiteModel.deleteWebsite = deleteWebsite;
 
 module.exports = websiteModel;
 
-function deleteWebsite(websiteId) {
-    return websiteModel.remove({_id: websiteId});
+function deleteWebsite(developerId, websiteId) {
+    return websiteModel
+        .remove({_id: websiteId})
+        .then(function (status) {
+            return userModel.removeWebsite(developerId, websiteId)
+        });
 }
 
 function findWebsiteById(websiteId) {
