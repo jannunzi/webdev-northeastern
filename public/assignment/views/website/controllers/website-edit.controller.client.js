@@ -8,6 +8,7 @@
 
         model.userId = $routeParams.userId;
         model.websiteId = $routeParams.websiteId;
+        model.deleteWebsite = deleteWebsite;
 
         function init() {
             websiteService
@@ -23,5 +24,12 @@
         }
         init();
 
+        function deleteWebsite(website) {
+            websiteService
+                .deleteWebsite(model.userId, website._id)
+                .then(function (status) {
+                    $location.url("/user/"+model.userId+"/website");
+                });
+        }
     }
 })();

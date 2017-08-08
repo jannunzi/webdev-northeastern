@@ -18,6 +18,12 @@
         this.findWebsitesForUser = findWebsitesForUser;
         this.createWebsite = createWebsite;
         this.findWebsiteById = findWebsiteById;
+        this.deleteWebsite = deleteWebsite;
+
+        function deleteWebsite(userId, websiteId) {
+            var url = "/api/user/" + userId + "/website/" + websiteId;
+            return $http.delete(url);
+        }
 
         function findWebsiteById(userId, websiteId) {
             var url = "/api/user/" + userId + "/website/" + websiteId;

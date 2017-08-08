@@ -5,6 +5,7 @@ var websiteModel = require("../models/website.model.server");
 app.get ("/api/user/:userId/website", findWebsitesForUser);
 app.get ("/api/user/:userId/website/:websiteId", findWebsiteById);
 app.post("/api/user/:userId/website", createWebsite);
+app.delete ("/api/user/:userId/website/:websiteId", deleteWebsite);
 
 var websites = [
     { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },
@@ -15,6 +16,15 @@ var websites = [
     { "_id": "678", "name": "Checkers",    "developerId": "123", "description": "Lorem" },
     { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
 ];
+
+function deleteWebsite(req, res) {
+    var websiteId = req.params.websiteId;
+    websiteModel
+        .deleteWebsite(websiteId)
+        .then(function (status) {
+            res.json(status);
+        });
+}
 
 function createWebsite(req, res) {
     var website = req.body;
