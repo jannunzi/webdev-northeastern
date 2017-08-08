@@ -44,5 +44,7 @@ function createUser(user) {
 }
 
 function findUserById(userId) {
-    return userModel.findById(userId);
+    return userModel
+        .findById(userId)
+        .populate('websites', 'name');
 }

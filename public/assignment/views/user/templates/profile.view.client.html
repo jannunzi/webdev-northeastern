@@ -61,6 +61,12 @@
                class="form-control"
                id="dob"/>
 
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="website in model.user.websites">
+                {{website.name}}
+            </li>
+        </ul>
+
         <a class="btn btn-default btn-primary btn-block"
            href="#!/user/{{model.user._id}}/website"
            role="button">Websites</a>
