@@ -14,12 +14,20 @@
 
         var api = {
             "findUserByUsername": findUserByUsername,
-            "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
+            "findUserByUsernameAndPassword": login,
             "findUserById": findUserById,
             "registerUser": registerUser,
-            "updateUser": updateUser
+            "updateUser": updateUser,
+            "checkLogin": checkLogin
         };
         return api;
+
+        function checkLogin() {
+            return $http.get("/api/checkLogin")
+                .then(function (response) {
+                    return response.data;
+                });
+        }
 
         function updateUser(userId, user) {
 
@@ -42,12 +50,12 @@
             return $http.get("/api/user/"+userId);
         }
 
-        function findUserByUsernameAndPassword(username, password) {
+        function login(username, password) {
 
-            var url = "/api/user?username="+username+"&password="+password;
+            var url = "/api/login";
             // /user?username=alice&password=alice
 
-            return $http.get(url);
+            return $http.post(url, {username: username, password: password});
 
         }
 
