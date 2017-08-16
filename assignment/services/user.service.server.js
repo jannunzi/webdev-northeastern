@@ -15,7 +15,8 @@ var users = [
 
 // http handlers
 
-app.post("/api/login", passport.authenticate('local'), login);
+// app.post("/api/login", passport.authenticate('local'), login);
+app.post("/api/login", login);
 
 app.get("/api/users", getAllUsers);
 app.get("/api/user/:userId", getUserById);
@@ -33,7 +34,7 @@ function localStrategy(username, password, done) {
         .findUserByCredentials(username, password)
         .then(function (user) {
             if (!user) {
-                return done(null, false);
+                return done(null, false, {message: "User Not Found"});
             }
             return done(null, user);
         }, function (err) {
@@ -44,8 +45,25 @@ function localStrategy(username, password, done) {
 }
 
 function login(req, res) {
-    var user = req.user;
-    res.json(user);
+    var username = req.body.username;
+    var password = req.body.password;
+    userModel
+        .findUserByCredentials(username, password)
+        .then(function (user) {
+            if (!user) {
+                res.status(401).send({"message": "User not found"});
+                return;
+            }
+            req.login(user, function () {
+                res.json(user);
+            });
+        }, function (err) {
+            if (err) {
+                res.status(401).send({"message": "User not found"});
+            }
+        });
+    // var user = req.user;
+    // res.json(user);
 }
 
 function updateUser(req, res) {
